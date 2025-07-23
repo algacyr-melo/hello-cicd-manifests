@@ -1,0 +1,31 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: hello-cicd
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: hello-cicd
+  template:
+    metadata:
+      name: hello-cicd
+      labels:
+        app: hello-cicd
+    spec:
+      containers:
+      - name: hello-cicd
+        # Este valor será sobrescrito pelo workflow de CI/CD
+        image: almelo/hello-cicd:54528bfb89748fc7813cb0f77d4a1642285eec3d
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: hello-cicd
+spec:
+  type: LoadBalancer
+  selector:
+    app: hello-cicd
+  ports:
+  - port: 8080
+    targetPort: 8000
