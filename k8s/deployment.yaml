@@ -19,17 +19,3 @@ spec:
       - name: hello-cicd
         # Este valor será sobrescrito pelo workflow de CI/CD
         image: almelo/hello-cicd:f13db300363a1448a3f1afb63e92824fcbe42ccb
----
-apiVersion: v1
-kind: Service
-metadata:
-  name: hello-cicd
-  labels:
-    app: hello-cicd
-spec:
-  type: LoadBalancer
-  selector:
-    app: hello-cicd
-  ports:
-  - port: 8080
-    targetPort: 8000
