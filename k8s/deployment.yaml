@@ -18,4 +18,4 @@ spec:
       containers:
       - name: hello-cicd
         # Este valor será sobrescrito pelo workflow de CI/CD
-        image: almelo/hello-cicd:6909dbdbf76975831a20dc8217f9a53ecda4930d
+        image: almelo/hello-cicd:fc60c74952fe1eb8dd7e93be0b169d26f801d982
